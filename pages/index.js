@@ -30,7 +30,7 @@ export default function Home() {
         setSubmitted(true);
         setName("");
         setEmail("");
-        setBody("");
+        setMessage("");
       }
     });
   };
