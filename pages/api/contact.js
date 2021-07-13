@@ -14,17 +14,19 @@ export default (req, res) => {
     const mailData = {
       from: process.env.mailsender,
       to: process.env.mailreceive,
-      subject: `Message From ${req.body.name}`,
-      text: req.body.message + " | Sent from: " + req.body.email,
-      html: `<div>${req.body.message}</div><p>Sent from:
-      ${req.body.email}</p>`
+      subject: `${req.body.message}`,
+      text: `${req.body.message}`,
+      html: `<div><p>${req.body.message}</p></div>`
     }
     transporter.sendMail(mailData, function (err, info) {
-      if(err)
-        console.log(err)
-      else
-        console.log(info)
+      if(err) {
+        console.log(err);
+        console.log(info);
+        res.status(404);
+      }
+      else {
+        res.status(200);
+      }
+      res.end();
     })
-    res.status(200)
-    res.end();
   }
