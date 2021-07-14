@@ -15,7 +15,6 @@ export default function Home() {
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log(res.status);
       if (res.status === 200) {
         setMessage("");
       }
