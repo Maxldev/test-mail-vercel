@@ -5,6 +5,7 @@ export default (req, res) => {
   async function mail() {
     console.log('enter async function');
     const transporter = nodemailer.createTransport({
+      name: "smtp.zoho.eu",
       port: 465,
       host: "smtp.zoho.eu",
       auth: {
