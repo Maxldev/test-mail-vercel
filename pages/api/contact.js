@@ -14,7 +14,7 @@ export default (req, res) => {
       },
       secure: true,
     })
-    let mail = transporter.sendMail({
+    let mail = await transporter.sendMail({
       from: process.env.mailsender,
       to: process.env.mailreceive,
       subject: `${req.body.message}`,
