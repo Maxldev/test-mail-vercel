@@ -1,4 +1,4 @@
-export default (req, res) => {
+export default async (req, res) => {
   require('dotenv').config()
   const nodemailer = require('nodemailer');
 
@@ -22,10 +22,10 @@ export default (req, res) => {
       html: `<div><p>${req.body.message}</p></div>`
     });
   }
-  
+
   try {
     console.log('sending mail');
-    mail();
+    await mail();
     res.status(200);
     console.log('mail should be sent');
   } catch (error) {
